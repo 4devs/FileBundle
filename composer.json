@@ -1,0 +1,33 @@
+{
+    "name": "fdevs/file-bundle",
+    "license": "MIT",
+    "type": "synfony-bundle",
+    "description": "Bundle for file/image/media",
+    "homepage": "https://github.com/4devs/FileBundle",
+    "keywords": ["symfony", "catalog"],
+    "authors": [
+        {
+            "name": "Samusev Andrey",
+            "email": "andrey_simfi@list.ru",
+            "homepage": "http://andrey.4devs.io/"
+        },
+        {
+            "name": "4devs File Community",
+            "homepage": "https://github.com/4devs/FileBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "2.5.*",
+        "doctrine/inflector": "~1.0",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "intervention/image": "2.*",
+        "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
+        "knplabs/gaufrette": "0.2.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "FDevs\\FileBundle": "" }
+    },
+    "target-dir": "FDevs/FileBundle"
+}

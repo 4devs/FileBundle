@@ -1,0 +1,37 @@
+<?php
+
+namespace FDevs\FileBundle\Twig\Extension;
+
+use Doctrine\Common\Inflector\Inflector;
+
+class CamelizeExtension extends \Twig_Extension
+{
+    /**
+     * {@inheritDoc}
+     */
+    public function getFilters()
+    {
+        return [new \Twig_SimpleFilter('camelize', [$this, 'camelizeFilter'])];
+    }
+
+    /**
+     * camelize Filter
+     *
+     * @param $value
+     *
+     * @return string
+     */
+    public function camelizeFilter($value)
+    {
+        return Inflector::camelize($value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+        return 'f_devs_camelize';
+    }
+
+} 

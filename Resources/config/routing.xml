@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="f_devs_file_upload" path="/upload/{handlerName}" methods="POST">
+        <default key="_controller">FDevsFileBundle:Upload:upload</default>
+        <default key="handlerName">file</default>
+        <requirement key="handlerName">image|file</requirement>
+    </route>
+    <route id="f_devs_file_delete" path="/delete/{handlerName}/{key}" methods="DELETE">
+        <default key="_controller">FDevsFileBundle:Upload:delete</default>
+        <default key="key">empty</default>
+        <default key="handlerName">file</default>
+        <requirement key="handlerName">image|file</requirement>
+    </route>
+</routes>
