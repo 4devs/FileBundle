@@ -49,7 +49,7 @@ public function registerBundles()
 }
 ```
 
-add javascripts on page
+#### add javascripts on page
 
 ``` twig
 {{ include 'FDevsFileBundle::javascripts.html.twig' }}
@@ -63,7 +63,7 @@ or
 <script src="{{ asset('bundles/fdevsfile/js/fileUpload.js') }}"></script>
 ```
 
-add stylesheets on page
+#### add stylesheets on page
 
 
 ``` twig
@@ -74,7 +74,17 @@ or
 ``` twig
 <link rel="stylesheet" href="{{ asset('bundles/fdevsfile/css/jquery.fileupload.css') }}">
 ```
-add config
+
+#### add route
+
+``` yaml
+# app/config/routing.yml
+f_devs_file:
+    resource: "@FDevsFileBundle/Resources/config/routing.xml"
+    prefix:   /file
+```
+
+#### add config
 
 ``` yaml
 # app/config/config.yml

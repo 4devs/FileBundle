@@ -21,6 +21,7 @@
         "symfony/symfony": "2.5.*",
         "doctrine/inflector": "~1.0",
         "twig/extensions": "~1.0",
+        "cocur/slugify": "~0.10",
         "symfony/assetic-bundle": "~2.3",
         "intervention/image": "2.*",
         "knplabs/knp-gaufrette-bundle": "0.2.*@dev",

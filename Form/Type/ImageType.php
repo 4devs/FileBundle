@@ -40,7 +40,13 @@ class ImageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver
-            ->setDefaults(['handler_name' => 'image', 'thumbs' => []])
+            ->setDefaults(
+                [
+                    'handler_name' => 'image',
+                    'thumbs' => [],
+                    'label' => 'label.image'
+                ]
+            )
             ->setOptional(['thumbs'])
             ->addAllowedTypes(['thumbs' => 'array']);
 
