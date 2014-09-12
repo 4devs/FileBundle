@@ -23,15 +23,16 @@ class UploadHandler implements HandlerInterface
      *
      * @param FilesystemMap         $filesystemMap
      * @param UrlGeneratorInterface $urlGenerator
-     * @param array                 $config
+     * @param string                $defaultFilesystemName
+     * @param array                 $configFilesystems
      */
     public function __construct(
         FilesystemMap $filesystemMap,
         UrlGeneratorInterface $urlGenerator,
-        $default,
-        array $config = []
+        $defaultFilesystemName,
+        array $configFilesystems
     ) {
-        $this->setConfig($config[$default]);
+        $this->setConfig($configFilesystems[$defaultFilesystemName]);
 
         $this->urlGenerator = $urlGenerator;
         $this->filesystemMap = $filesystemMap;
