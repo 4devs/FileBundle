@@ -44,7 +44,9 @@ class FileType extends AbstractType
                     'validation_options' => $this->filesystems[$this->default]['validation_options'],
                     'handler_name' => 'file',
                     'filesystem' => $this->default,
-                    'multiple' => false
+                    'multiple' => false,
+                    'translation_domain' => 'FDevsFileBundle',
+                    'label' => 'label.file'
                 ]
             )
             ->addAllowedTypes(

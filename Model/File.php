@@ -2,6 +2,8 @@
 
 namespace FDevs\FileBundle\Model;
 
+use Cocur\Slugify\Slugify;
+
 class File implements \Serializable
 {
     /** @var string */
@@ -32,7 +34,9 @@ class File implements \Serializable
     public function __construct($name, $type)
     {
         $this->type = $type;
-        $this->name = $name;
+        $name = pathinfo($name);
+        $this->name = Slugify::create()->slugify($name['filename'])
+            . (empty($name['extension']) ? '' : '.' . $name['extension']);
     }
 
     /**

@@ -6,6 +6,7 @@ use FDevs\FileBundle\Model\File;
 use Gaufrette\Filesystem;
 use Knp\Bundle\GaufretteBundle\FilesystemMap;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\Router;
 
 class UploadHandler implements HandlerInterface
@@ -14,21 +15,26 @@ class UploadHandler implements HandlerInterface
     private $filesystemMap;
     /** @var array */
     private $config = [];
-    /** @var \Symfony\Component\Routing\Router */
-    private $router;
+    /** @var \Symfony\Component\Routing\Generator\UrlGeneratorInterface */
+    private $urlGenerator;
 
     /**
      * init
      *
-     * @param FilesystemMap $filesystemMap
-     * @param Router        $router
-     * @param array         $config
+     * @param FilesystemMap         $filesystemMap
+     * @param UrlGeneratorInterface $urlGenerator
+     * @param string                $defaultFilesystemName
+     * @param array                 $configFilesystems
      */
-    public function __construct(FilesystemMap $filesystemMap, Router $router, $default, array $config = [])
-    {
-        $this->setConfig($config[$default]);
+    public function __construct(
+        FilesystemMap $filesystemMap,
+        UrlGeneratorInterface $urlGenerator,
+        $defaultFilesystemName,
+        array $configFilesystems
+    ) {
+        $this->setConfig($configFilesystems[$defaultFilesystemName]);
 
-        $this->router = $router;
+        $this->urlGenerator = $urlGenerator;
         $this->filesystemMap = $filesystemMap;
 
     }
@@ -57,7 +63,7 @@ class UploadHandler implements HandlerInterface
             $file->setSize($size);
             $file->setDeleteType('DELETE');
             $file->setDeleteUrl(
-                $this->router->generate(
+                $this->urlGenerator->generate(
                     'f_devs_file_delete',
                     ['key' => $file->getName(), 'handlerName' => $this->getName()],
                     Router::ABSOLUTE_URL
@@ -135,13 +141,13 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * get Router
+     * get Url Generator
      *
-     * @return Router
+     * @return UrlGeneratorInterface
      */
-    protected function getRouter()
+    protected function getUrlGenerator()
     {
-        return $this->router;
+        return $this->urlGenerator;
     }
 
     /**
