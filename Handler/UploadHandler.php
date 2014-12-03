@@ -36,7 +36,6 @@ class UploadHandler implements HandlerInterface
 
         $this->urlGenerator = $urlGenerator;
         $this->filesystemMap = $filesystemMap;
-
     }
 
     /**
@@ -69,7 +68,7 @@ class UploadHandler implements HandlerInterface
                     Router::ABSOLUTE_URL
                 )
             );
-            $file->setUrl($this->config['web_path'] . $file->getName());
+            $file->setUrl($this->config['web_path'].$file->getName());
         } catch (\Exception $e) {
             $file->setError($e->getMessage());
         }
@@ -159,5 +158,4 @@ class UploadHandler implements HandlerInterface
     {
         return $this->config['validation_options']['accept_file_types'];
     }
-
 }

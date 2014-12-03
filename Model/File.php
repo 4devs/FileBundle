@@ -36,7 +36,7 @@ class File implements \Serializable
         $this->type = $type;
         $name = pathinfo($name);
         $this->name = Slugify::create()->slugify($name['filename'])
-            . (empty($name['extension']) ? '' : '.' . $name['extension']);
+            .(empty($name['extension']) ? '' : '.'.$name['extension']);
     }
 
     /**
@@ -234,7 +234,7 @@ class File implements \Serializable
             'url' => $this->url,
             'deleteUrl' => $this->deleteUrl,
             'deleteType' => $this->deleteType,
-            'error' => $this->error
+            'error' => $this->error,
         ];
 
         return array_filter(
@@ -255,7 +255,7 @@ class File implements \Serializable
     public function fromArray(array $array)
     {
         foreach ($array as $key => $value) {
-            $method = 'set' . ucfirst($key);
+            $method = 'set'.ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->{$method}($value);
             }

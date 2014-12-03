@@ -38,7 +38,7 @@ class UploadController extends Controller
     private function getHeader($handlerName = 'file', $filesystemName = '')
     {
         /** @var \FDevs\FileBundle\Handler\UploadHandler $handler */
-        $handler = $this->container->get('f_devs_file.handler.' . $handlerName);
+        $handler = $this->container->get('f_devs_file.handler.'.$handlerName);
         $filesystems = $this->container->getParameter('f_devs_file.filesystems');
         if ($filesystemName && isset($filesystems[$filesystemName])) {
             $handler->setConfig($filesystems[$filesystemName]);

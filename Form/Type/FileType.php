@@ -36,7 +36,7 @@ class FileType extends AbstractType
                 [
                     'validation_options',
                     'handler_name',
-                    'filesystem'
+                    'filesystem',
                 ]
             )
             ->setDefaults(
@@ -46,14 +46,14 @@ class FileType extends AbstractType
                     'filesystem' => $this->default,
                     'multiple' => false,
                     'translation_domain' => 'FDevsFileBundle',
-                    'label' => 'label.file'
+                    'label' => 'label.file',
                 ]
             )
             ->addAllowedTypes(
                 [
                     'validation_options' => 'array',
                     'handler_name' => 'string',
-                    'filesystem' => 'string'
+                    'filesystem' => 'string',
                 ]
             );
     }
@@ -100,5 +100,4 @@ class FileType extends AbstractType
     {
         return 'url';
     }
-
 }

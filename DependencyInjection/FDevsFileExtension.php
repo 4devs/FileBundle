@@ -21,10 +21,10 @@ class FDevsFileExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter($this->getAlias() . '.filesystems', $config['filesystems']);
-        $container->setParameter($this->getAlias() . '.default.filesystem', $config['default']);
+        $container->setParameter($this->getAlias().'.filesystems', $config['filesystems']);
+        $container->setParameter($this->getAlias().'.default.filesystem', $config['default']);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('form.xml');
         $loader->load('service.xml');
     }

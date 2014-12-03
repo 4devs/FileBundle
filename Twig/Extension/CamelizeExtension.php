@@ -33,5 +33,4 @@ class CamelizeExtension extends \Twig_Extension
     {
         return 'f_devs_camelize';
     }
-
-} 
+}

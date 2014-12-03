@@ -5,8 +5,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ThumbExtension extends \Twig_Extension
 {
-
-
     private $container;
     private $filesystem;
     private $config = [];
@@ -48,7 +46,7 @@ class ThumbExtension extends \Twig_Extension
     {
         $webPath = $this->getWebPath($filesystem);
 
-        return str_replace($webPath, $webPath . $thumbName . '_', $file);
+        return str_replace($webPath, $webPath.$thumbName.'_', $file);
     }
 
     public function getWebPath($filesystem = '')
@@ -63,5 +61,4 @@ class ThumbExtension extends \Twig_Extension
     {
         return 'f_devs_file_thumb';
     }
-
 }

@@ -9,7 +9,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ImageType extends AbstractType
 {
-
     /**
      * {@inheritDoc}
      */
@@ -44,11 +43,10 @@ class ImageType extends AbstractType
                 [
                     'handler_name' => 'image',
                     'thumbs' => [],
-                    'label' => 'label.image'
+                    'label' => 'label.image',
                 ]
             )
             ->setOptional(['thumbs'])
             ->addAllowedTypes(['thumbs' => 'array']);
-
     }
 }

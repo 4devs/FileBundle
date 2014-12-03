@@ -4,6 +4,7 @@ namespace FDevs\FileBundle\Handler;
 
 use FDevs\FileBundle\Model\File;
 use Intervention\Image\ImageManager;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ImageHandler extends UploadHandler
@@ -34,11 +35,14 @@ class ImageHandler extends UploadHandler
     public function upload(UploadedFile $uploadedFile)
     {
         $file = parent::upload($uploadedFile);
-        $thumbs = $this->getThumbs();
         try {
+            if ($file->getError()) {
+                throw new Exception($file->getError());
+            }
+            $thumbs = $this->getThumbs();
             foreach ($thumbs as $key => $thumb) {
                 $resize = $this->resizeImage($file, $thumb['width'], $thumb['height'], $thumb['type']);
-                $this->write($key . '_' . $file->getName(), $resize->encode());
+                $this->write($key.'_'.$file->getName(), $resize->encode());
             }
         } catch (\Exception $e) {
             $file->setError($e->getMessage());
@@ -52,7 +56,7 @@ class ImageHandler extends UploadHandler
         $thumbs = $this->getThumbs();
         $return = parent::delete($name);
         foreach ($thumbs as $key => $thumb) {
-            $data = parent::delete($key . '_' . $name);
+            $data = parent::delete($key.'_'.$name);
             $return = $return ? $data : $return;
         }
 
