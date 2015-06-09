@@ -5,6 +5,7 @@ namespace FDevs\FileBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FileType extends AbstractType
@@ -29,33 +30,27 @@ class FileType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
-            ->setOptional(
-                [
-                    'validation_options',
-                    'handler_name',
-                    'filesystem',
-                ]
-            )
-            ->setDefaults(
-                [
-                    'validation_options' => $this->filesystems[$this->default]['validation_options'],
-                    'handler_name' => 'file',
-                    'filesystem' => $this->default,
-                    'multiple' => false,
-                    'translation_domain' => 'FDevsFileBundle',
-                    'label' => 'label.file',
-                ]
-            )
-            ->addAllowedTypes(
-                [
-                    'validation_options' => 'array',
-                    'handler_name' => 'string',
-                    'filesystem' => 'string',
-                ]
-            );
+            ->setDefined([
+                'validation_options',
+                'handler_name',
+                'filesystem',
+            ])
+            ->setDefaults([
+                'validation_options' => $this->filesystems[$this->default]['validation_options'],
+                'handler_name'       => 'file',
+                'filesystem'         => $this->default,
+                'multiple'           => false,
+                'translation_domain' => 'FDevsFileBundle',
+                'label'              => 'label.file',
+            ])
+            ->addAllowedTypes([
+                'validation_options' => 'array',
+                'handler_name'       => 'string',
+                'filesystem'         => 'string',
+            ]);
     }
 
     /**

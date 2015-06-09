@@ -5,6 +5,7 @@ namespace FDevs\FileBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ImageType extends AbstractType
@@ -36,17 +37,15 @@ class ImageType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
-            ->setDefaults(
-                [
-                    'handler_name' => 'image',
-                    'thumbs' => [],
-                    'label' => 'label.image',
-                ]
-            )
-            ->setOptional(['thumbs'])
+            ->setDefaults([
+                'handler_name' => 'image',
+                'thumbs'       => [],
+                'label'        => 'label.image',
+            ])
+            ->setDefined(['thumbs'])
             ->addAllowedTypes(['thumbs' => 'array']);
     }
 }
