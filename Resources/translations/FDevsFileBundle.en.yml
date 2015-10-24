@@ -1,3 +1,6 @@
 label:
     image: 'Image'
     file: 'File'
+file:
+    delete: Delete
+    upload: Upload
