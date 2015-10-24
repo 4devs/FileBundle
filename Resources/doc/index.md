@@ -111,7 +111,7 @@ f_devs_file:
                 accept_file_types: '/(\.|\/)(gif|jpe?g|png)$/i'
             thumbs:
                 small: {height: 289, width: 400}
-                prewiew: {height: 450, width: 600, type: 'crop'}
+                preview: {height: 450, width: 600, type: 'crop'}
             gaufrette_filesystem: 'catalog'
 
 knp_gaufrette:
@@ -155,4 +155,14 @@ use in form
 ``` php
 $builder->add('image', 'fdevs_file');
 $builder->add('image', 'fdevs_image', ['filesystem' => 'catalog', 'validation_options' => ['max_file_size' => 1000]]);
+```
+
+use image in twig
+
+```twig
+use default filesystems
+<img src="{{ thumb(item.image) }}" title="">
+
+or use preview size
+<img src="{{ thumb(item.image,'preview','catalog') }}" title="">
 ```
