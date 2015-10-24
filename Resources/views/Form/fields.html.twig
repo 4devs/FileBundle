@@ -7,16 +7,16 @@
 
                 {{ block('form_widget_simple') }}
                 <div class="input-group-btn">
-                    <button class="btn btn-default fileinput-button" type="button" id="select_{{ id }}">
+                    <div class="btn btn-default fileinput-button" type="button" id="select_{{ id }}">
                         Select
                         <input type="file" name="files[]" id="file_{{ id }}"
                                data-url="{{ path('f_devs_file_upload',{'handlerName':handler_name}) }}" {{ block('fdevs_widget_file_attributes') }}
                                 data-form='{"validation_options":{{ validation_options|json_encode()|raw }}, {{ thumbs is defined and thumbs|length ? '{"thumbs":'~ thumbs|json_encode()|raw~'},':'' }} "filesystem":"{{ filesystem }}"}'/>
-                    </button>
-                    <button id="delete_{{ id }}" class="btn btn-default" type="button" data-type="DELETE"
+                    </div>
+                    <div id="delete_{{ id }}" class="btn btn-default" type="button" data-type="DELETE"
                             data-url="{{ url('f_devs_file_delete',{'handlerName':handler_name,'key':value|slice(web_path|length)|default('empty')}) }}">
                         Delete
-                    </button>
+                    </div>
                 </div>
             </div>
             <div id="progress" class="progress">
