@@ -44,6 +44,7 @@ class FileType extends AbstractType
                 'multiple'           => false,
                 'translation_domain' => 'FDevsFileBundle',
                 'label'              => 'label.file',
+                'default_protocol'   => null
             ])
             ->addAllowedTypes([
                 'validation_options' => 'array',
