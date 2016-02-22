@@ -1,45 +1,43 @@
 {% block fdevs_image_widget %}
 {% spaceless %}
-    <div class="row">
-        <div class="col-lg-12 fdevs-file" data-id="{{ id }}">
-            <div id="group_{{ id }}" class="input-group">
-                {% set type = 'text' %}
-                {% set read_only=true %}
-
-                {{ block('form_widget_simple') }}
-                <div class="input-group-btn">
-                    <div class="btn btn-default fileinput-button" id="select_{{ id }}">
-                        {{ 'file.upload'|trans({},'FDevsFileBundle') }}
-                        <input type="file" name="files[]" id="file_{{ id }}"
-                               data-url="{{ path('f_devs_file_upload',{'handlerName':handler_name}) }}" {{ block('fdevs_widget_file_attributes') }}
-                                data-form='{"validation_options":{{ validation_options|json_encode()|raw }}, {{ thumbs is defined and thumbs|length ? '{"thumbs":'~ thumbs|json_encode()|raw~'},':'' }} "filesystem":"{{ filesystem }}"}'/>
-                    </div>
-                    <div id="delete_{{ id }}" class="btn btn-default" data-type="DELETE"
-                         data-url="{{ url('f_devs_file_delete',{'handlerName':handler_name,'key':file_key}) }}">
-                        {{ 'file.delete'|trans({},'FDevsFileBundle') }}
-                    </div>
+<div class="row">
+    <div class="col-lg-12 fdevs-file" data-id="{{ id }}">
+        <div id="group_{{ id }}" class="input-group">
+            {% set type = 'text' %}
+            {{ block('form_widget_simple') }}
+            <div class="input-group-btn">
+                <div class="btn btn-default fileinput-button" id="select_{{ id }}">
+                    {{ 'file.upload'|trans({},'FDevsFileBundle') }}
+                    <input type="file" name="files[]" id="file_{{ id }}"
+                           data-url="{{ path('f_devs_file_upload',{'handlerName':handler_name}) }}" {{ block('fdevs_widget_file_attributes') }}
+                            data-form='{"validation_options":{{ validation_options|json_encode()|raw }}, {{ thumbs is defined and thumbs|length ? '{"thumbs":'~ thumbs|json_encode()|raw~'},':'' }} "filesystem":"{{ filesystem }}"}'/>
+                </div>
+                <div id="delete_{{ id }}" class="btn btn-default" data-type="DELETE"
+                     data-url="{{ url('f_devs_file_delete',{'handlerName':handler_name,'key':file_key}) }}">
+                    {{ 'file.delete'|trans({},'FDevsFileBundle') }}
                 </div>
             </div>
-            <div id="progress" class="progress">
-                <div class="progress-bar progress-bar-success"></div>
-            </div>
+        </div>
+        <div id="progress" class="progress">
+            <div class="progress-bar progress-bar-success"></div>
         </div>
     </div>
+</div>
 {% endspaceless %}
 {% endblock fdevs_image_widget %}
 
 {% block fdevs_widget_file_attributes -%}
-    {%- if read_only %} readonly="readonly"{% endif -%}
-    {%- if disabled %} disabled="disabled"{% endif -%}
-    {%- if required %} required="required"{% endif -%}
-    {%- for attrname, attrvalue in attr -%}
-        {{- " " -}}
-        {%- if attrname in ['placeholder', 'title'] -%}
-            {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
-        {%- elseif attrvalue is sameas(true) -%}
-            {{- attrname }}="{{ attrname }}"
-        {%- elseif attrvalue is not sameas(false) -%}
-            {{- attrname }}="{{ attrvalue }}"
-        {%- endif -%}
-    {%- endfor -%}
+{%- if read_only %} readonly="readonly"{% endif -%}
+{%- if disabled %} disabled="disabled"{% endif -%}
+{%- if required %} required="required"{% endif -%}
+{%- for attrname, attrvalue in attr -%}
+    {{- " " -}}
+    {%- if attrname in ['placeholder', 'title'] -%}
+        {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+    {%- elseif attrvalue is sameas(true) -%}
+        {{- attrname }}="{{ attrname }}"
+    {%- elseif attrvalue is not sameas(false) -%}
+        {{- attrname }}="{{ attrvalue }}"
+    {%- endif -%}
+{%- endfor -%}
 {%- endblock fdevs_widget_file_attributes %}

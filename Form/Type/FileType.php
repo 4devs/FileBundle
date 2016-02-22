@@ -47,11 +47,10 @@ class FileType extends AbstractType
                 'translation_domain' => 'FDevsFileBundle',
                 'label' => 'label.file',
                 'default_protocol' => null,
-                'attr' => ['novalidate' => true],
             ])
-            ->addAllowedTypes('validation_options'['array'])
-            ->addAllowedTypes('handler_name'['string'])
-            ->addAllowedTypes('filesystem'['string'])
+            ->addAllowedTypes('validation_options', ['array'])
+            ->addAllowedTypes('handler_name', ['string'])
+            ->addAllowedTypes('filesystem', ['string'])
         ;
     }
 
