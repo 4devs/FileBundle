@@ -9,10 +9,12 @@
         <default key="handlerName">file</default>
         <requirement key="handlerName">image|file</requirement>
     </route>
+
     <route id="f_devs_file_delete" path="/delete/{handlerName}/{key}" methods="DELETE">
         <default key="_controller">FDevsFileBundle:Upload:delete</default>
         <default key="key">empty</default>
         <default key="handlerName">file</default>
         <requirement key="handlerName">image|file</requirement>
     </route>
+
 </routes>

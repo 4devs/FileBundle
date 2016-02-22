@@ -153,8 +153,11 @@ class Item
 use in form
 
 ``` php
-$builder->add('image', 'fdevs_file');
-$builder->add('image', 'fdevs_image', ['filesystem' => 'catalog', 'validation_options' => ['max_file_size' => 1000]]);
+use FDevs\FileBundle\Form\Type\ImageType;
+use FDevs\FileBundle\Form\Type\FileType;
+
+$builder->add('image', FileType::class);
+$builder->add('image', ImageType::class, ['filesystem' => 'catalog', 'validation_options' => ['max_file_size' => 1000]]);
 ```
 
 use image in twig
