@@ -17,7 +17,7 @@ class FileType extends AbstractType
     private $filesystems = [];
 
     /**
-     * init
+     * init.
      *
      * @param string $default
      * @param array  $filesystems

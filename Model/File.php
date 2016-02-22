@@ -26,7 +26,7 @@ class File implements \Serializable
     protected $pathname = '';
 
     /**
-     * init
+     * init.
      *
      * @param string $name
      * @param string $type
@@ -220,7 +220,7 @@ class File implements \Serializable
     }
 
     /**
-     * to Array
+     * to Array.
      *
      * @return array
      */
@@ -240,13 +240,13 @@ class File implements \Serializable
         return array_filter(
             $data,
             function ($var) {
-                return !!($var);
+                return (bool) ($var);
             }
         );
     }
 
     /**
-     * from Array
+     * from Array.
      *
      * @param array $array
      *
@@ -265,7 +265,7 @@ class File implements \Serializable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function serialize()
     {
@@ -273,7 +273,7 @@ class File implements \Serializable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function unserialize($serialized)
     {

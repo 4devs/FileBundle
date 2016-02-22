@@ -64,7 +64,7 @@ class ImageHandler extends UploadHandler
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {

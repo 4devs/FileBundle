@@ -7,7 +7,7 @@ use Doctrine\Common\Inflector\Inflector;
 class CamelizeExtension extends \Twig_Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFilters()
     {
@@ -15,7 +15,7 @@ class CamelizeExtension extends \Twig_Extension
     }
 
     /**
-     * camelize Filter
+     * camelize Filter.
      *
      * @param $value
      *
@@ -27,7 +27,7 @@ class CamelizeExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
