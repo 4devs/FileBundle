@@ -3,6 +3,7 @@
 namespace FDevs\FileBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -11,11 +12,12 @@ class FileType extends AbstractType
 {
     /** @var string */
     private $default;
+
     /** @var array */
     private $filesystems = [];
 
     /**
-     * init
+     * init.
      *
      * @param string $default
      * @param array  $filesystems
@@ -39,18 +41,17 @@ class FileType extends AbstractType
             ])
             ->setDefaults([
                 'validation_options' => $this->filesystems[$this->default]['validation_options'],
-                'handler_name'       => 'file',
-                'filesystem'         => $this->default,
-                'multiple'           => false,
+                'handler_name' => 'file',
+                'filesystem' => $this->default,
+                'multiple' => false,
                 'translation_domain' => 'FDevsFileBundle',
-                'label'              => 'label.file',
-                'default_protocol'   => null
+                'label' => 'label.file',
+                'default_protocol' => null,
             ])
-            ->addAllowedTypes([
-                'validation_options' => 'array',
-                'handler_name'       => 'string',
-                'filesystem'         => 'string',
-            ]);
+            ->addAllowedTypes('validation_options', ['array'])
+            ->addAllowedTypes('handler_name', ['string'])
+            ->addAllowedTypes('filesystem', ['string'])
+        ;
     }
 
     /**
@@ -64,20 +65,12 @@ class FileType extends AbstractType
             $view->vars['attr']['multiple'] = 'multiple';
         }
         $view->vars['filesystem'] = $options['filesystem'];
-        $view->vars['web_path'] = $filesystem['web_path'];
+        $view->vars['file_key'] = $form->getData() ? pathinfo($form->getData(), PATHINFO_BASENAME) : 'empty';
         $view->vars['handler_name'] = $options['handler_name'];
         $view->vars['validation_options'] = array_replace(
             $filesystem['validation_options'],
             $options['validation_options']
         );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'fdevs_file';
     }
 
     /**
@@ -93,6 +86,6 @@ class FileType extends AbstractType
      */
     public function getParent()
     {
-        return 'url';
+        return UrlType::class;
     }
 }

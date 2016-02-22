@@ -8,15 +8,14 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class FormPass implements CompilerPassInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function process(ContainerBuilder $container)
     {
-        $template = "FDevsFileBundle:Form:fields.html.twig";
+        $template = '@FDevsFile/Form/fields.html.twig';
         $resources = $container->getParameter('twig.form.resources');
-
         if (!in_array($template, $resources)) {
-            $resources[] = "FDevsFileBundle:Form:fields.html.twig";
+            $resources[] = $template;
             $container->setParameter('twig.form.resources', $resources);
         }
     }

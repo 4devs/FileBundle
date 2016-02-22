@@ -19,7 +19,7 @@ class UploadHandler implements HandlerInterface
     private $urlGenerator;
 
     /**
-     * init
+     * init.
      *
      * @param FilesystemMap         $filesystemMap
      * @param UrlGeneratorInterface $urlGenerator
@@ -39,7 +39,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -47,7 +47,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function upload(UploadedFile $uploadedFile)
     {
@@ -77,7 +77,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function delete($name)
     {
@@ -91,7 +91,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * set Config
+     * set Config.
      *
      * @param array $config
      *
@@ -105,7 +105,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * write
+     * write.
      *
      * @param string $name
      * @param string $content
@@ -118,7 +118,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * get Filesystem
+     * get Filesystem.
      *
      * @param string $name
      *
@@ -130,7 +130,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * get Thumbs
+     * get Thumbs.
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * get Url Generator
+     * get Url Generator.
      *
      * @return UrlGeneratorInterface
      */
@@ -150,7 +150,7 @@ class UploadHandler implements HandlerInterface
     }
 
     /**
-     * get Allowed Type
+     * get Allowed Type.
      *
      * @return string
      */

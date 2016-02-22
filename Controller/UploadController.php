@@ -12,7 +12,7 @@ class UploadController extends Controller
     {
         $data = [];
         $uploadHandler = $this->getHeader($handlerName, $request->get('filesystem', ''));
-        /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $file */
+        /* @var \Symfony\Component\HttpFoundation\File\UploadedFile $file */
         $files = current($request->files->all());
         $files = is_array($files) ? $files : [$files];
         foreach ($files as $file) {

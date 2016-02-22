@@ -10,13 +10,12 @@
     </parameters>
 
     <services>
-        <service id="f_devs_file.form_type_image" class="%f_devs_file.form_type_image.class%"
-                 parent="f_devs_file.form_type_file">
-            <tag name="form.type" alias="fdevs_image"/>
+        <service id="f_devs_file.form_type_image" class="%f_devs_file.form_type_image.class%" parent="f_devs_file.form_type_file">
+            <tag name="form.type"/>
         </service>
 
         <service id="f_devs_file.form_type_file" class="%f_devs_file.form_type_file.class%">
-            <tag name="form.type" alias="fdevs_file"/>
+            <tag name="form.type"/>
             <argument>%f_devs_file.default.filesystem%</argument>
             <argument>%f_devs_file.filesystems%</argument>
         </service>

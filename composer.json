@@ -3,7 +3,7 @@
     "license": "MIT",
     "type": "symfony-bundle",
     "description": "Bundle for file/image/media",
-    "homepage": "https://github.com/4devs/FileBundle",
+    "homepage": "https://github.com/4devs/file-bundle",
     "keywords": ["symfony", "catalog"],
     "authors": [
         {
@@ -13,19 +13,17 @@
         },
         {
             "name": "4devs File Community",
-            "homepage": "https://github.com/4devs/FileBundle/contributors"
+            "homepage": "https://github.com/4devs/file-bundle/contributors"
         }
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": ">=2.7,<3.0",
+        "symfony/symfony": "~2.8|3.0",
         "doctrine/inflector": "~1.0",
         "twig/extensions": "~1.0",
-        "cocur/slugify": "~1.0",
-        "symfony/assetic-bundle": "~2.3",
-        "intervention/image": "2.*",
-        "knplabs/knp-gaufrette-bundle": "0.2.*@dev",
-        "knplabs/gaufrette": "0.2.*@dev"
+        "cocur/slugify": "~1.4",
+        "intervention/image": "~2.3",
+        "knplabs/knp-gaufrette-bundle": "~0.3"
     },
     "autoload": {
         "psr-4": { "FDevs\\FileBundle\\": "" }

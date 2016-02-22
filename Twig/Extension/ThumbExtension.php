@@ -1,4 +1,5 @@
 <?php
+
 namespace FDevs\FileBundle\Twig\Extension;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -10,7 +11,7 @@ class ThumbExtension extends \Twig_Extension
     private $config = [];
 
     /**
-     * init
+     * init.
      *
      * @param array              $config
      * @param string             $filesystem
@@ -24,7 +25,7 @@ class ThumbExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getFunctions()
     {
@@ -34,7 +35,7 @@ class ThumbExtension extends \Twig_Extension
     }
 
     /**
-     * thumb function
+     * thumb function.
      *
      * @param string $file
      * @param string $thumbName
@@ -55,7 +56,7 @@ class ThumbExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {

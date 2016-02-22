@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 interface HandlerInterface
 {
     /**
-     * upload
+     * upload.
      *
      * @param UploadedFile $uploadedFile
      *
@@ -16,7 +16,8 @@ interface HandlerInterface
     public function upload(UploadedFile $uploadedFile);
 
     /**
-     * delete
+     * delete.
+     *
      * @param string $name
      *
      * @return bool|string
@@ -24,7 +25,7 @@ interface HandlerInterface
     public function delete($name);
 
     /**
-     * get Handler Name
+     * get Handler Name.
      *
      * @return string
      */
