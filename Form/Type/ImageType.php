@@ -22,7 +22,6 @@ class ImageType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        dump($view->vars);
         $view->vars['thumbs'] = $options['thumbs'];
     }
 
