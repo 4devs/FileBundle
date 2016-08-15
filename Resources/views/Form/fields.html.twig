@@ -27,7 +27,7 @@
 {% endblock fdevs_image_widget %}
 
 {% block fdevs_widget_file_attributes -%}
-{%- if read_only %} readonly="readonly"{% endif -%}
+{%- if read_only is defined and read_only %} readonly="readonly"{% endif -%}
 {%- if disabled %} disabled="disabled"{% endif -%}
 {%- for attrname, attrvalue in attr -%}
     {{- " " -}}
