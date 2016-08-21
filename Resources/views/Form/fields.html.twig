@@ -13,7 +13,7 @@
                             data-form='{"validation_options":{{ validation_options|json_encode()|raw }}, {{ thumbs is defined and thumbs|length ? '{"thumbs":'~ thumbs|json_encode()|raw~'},':'' }} "filesystem":"{{ filesystem }}"}'/>
                 </div>
                 <div id="delete_{{ id }}" class="btn btn-default" data-type="DELETE"
-                     data-url="{{ url('f_devs_file_delete',{'handlerName':handler_name,'key':file_key}) }}">
+                     data-url="{{ url('f_devs_file_delete',{'handlerName':handler_name,'key':file_key},true) }}">
                     {{ 'file.delete'|trans({},'FDevsFileBundle') }}
                 </div>
             </div>
